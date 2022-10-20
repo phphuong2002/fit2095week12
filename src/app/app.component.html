@@ -1,0 +1,35 @@
+<h1>FIT2095 - Week 12 Translate App</h1>
+<hr>
+
+<form>
+  <div class="mb-3">
+    <label for="messageText" class="form-label">Text in English</label>
+    <input type="text" placeholder="Enter your text here" name="text" class="form-control" [(ngModel)]="messageText"/>  
+  </div>
+
+  <div>
+    <label for="targetLanguage" class="form-label">Select language</label>
+<select class="form-control" name="language" [(ngModel)]="selectedLanguage" id="targetLanguages">
+      <option value="fr">French</option>
+      <option value="ko">Korean</option>
+      <option value="ja">Japanese</option>
+      <option value="zh">Chinese</option>
+      <option value="vi">Vietnamese</option>
+    </select>
+<button type="submit" class="btn btn-primary" (click)="sendText()" >Submit</button>
+  </div>
+</form>
+
+
+
+<div class="card" style="width: 18rem;">
+  <div style="display: inline-block" *ngFor="let item of messages">
+    <div class="card-header">From English to {{item.targetLanguage}}</div>
+    <div class="card-body">
+      <p class="card-text">Original: {{item.originalText}}</p>
+      <p class="card-text">Translated to {{item.targetLanguage}}: {{item.translatedText}}</p>
+      <p class="card-text">Translated to English: {{item.translatedText2}}</p>
+    </div>
+  </div>
+</div>
+
